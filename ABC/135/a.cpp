@@ -10,4 +10,5 @@ int main(){
     } else {
         cout << (a+b)/2 << endl; 
     }
+    return 0;
 }
