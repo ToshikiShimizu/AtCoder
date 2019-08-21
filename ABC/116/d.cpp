@@ -39,8 +39,8 @@ int main(){
             S.insert(PlusPQ.top().second);
             sum += diff;
             mx = max(sum,mx);
+            MinusPQ.pop();
         }
-        MinusPQ.pop();
         PlusPQ.pop();
     }
     cout << mx << endl;
