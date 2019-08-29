@@ -2,6 +2,7 @@
 #define INF 1e9
 using namespace std;
 
+
 int binarySearch(vector<int> S, int key){
     int right = S.size();
     int left = 0;
