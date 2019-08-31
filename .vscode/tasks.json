@@ -8,10 +8,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}",
+                "${fileDirname}/a.out",
                 "-std=c++11",
-                "&",
-                "${fileDirname}/a.out"
             ],
             "options": {
                 "cwd": "/usr/local/bin"
