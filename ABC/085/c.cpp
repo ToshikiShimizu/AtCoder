@@ -26,6 +26,7 @@ int main() {
                 return 0;
             }
       }
+      
   }
   cout << -1 << " " << -1 << " " << -1 << endl;
 }
