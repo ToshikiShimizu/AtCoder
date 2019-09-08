@@ -35,7 +35,7 @@ int main() {
     REP(i,n){
         nxt = cur;
         for(int x : cur){
-            // cout << x << " ";
+            //cout << x << " ";
             auto it = st.upper_bound(x);
             if(it == st.end()){
                 cout << "No" << endl;
