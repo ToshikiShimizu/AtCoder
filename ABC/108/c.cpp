@@ -19,11 +19,11 @@ const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int n,k;
+  ll n,k;
   cin >> n >> k;
   if (k%2==1){
-      cout << (int) pow((n/k),3) << endl;
+      cout << (ll) pow((n/k),3) << endl;
   }else{
-      cout << (int) pow(((n+(k/2))/k),3) + (int) pow((n/k),3) << endl;
+      cout << (ll) pow(((n+(k/2))/k),3) + (ll) pow((n/k),3) << endl;
   }
 }
