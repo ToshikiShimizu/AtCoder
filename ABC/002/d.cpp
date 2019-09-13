@@ -22,20 +22,22 @@ int main() {
   int x, y;
   int ans = 0;
   cin >> n >> m;
-  int link[12][12];
+  int link[12][12]={};
   REP(i,m){
       cin >> x >> y;
       link[x-1][y-1]=1;
       link[y-1][x-1]=1;
   }
-  for (int S=1<<n;S--;){
+  for (int S=1<<n;--S;){
       bool flag = true;
       int t = bitset<32>(S).count();
-      //cout << t << endl;
+      //dump(S);
       if (t<=ans)continue;
-      REP(i,n)REP(j,n){
-          if (S>>i&S>>j&1 && !link[i][j])flag = false;
+      REP(i,n)REP(j,i){
+          
+          if (S>>i & S>>j & 1 && !link[i][j])flag = false;
       }
+      //dump(flag);
       if(flag)ans=t;
   }
   cout << ans << endl;
