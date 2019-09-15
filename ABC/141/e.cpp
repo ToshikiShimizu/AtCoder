@@ -25,17 +25,20 @@ int main() {
   cin >> S;
   int ans = 0;
   while(n>0){
-    int p = 0;
-    FOR(i,n,S.size()){
-      if (S[i] == S[p]){
-        p++;
-        if (p==n){
-          cout << n << endl;
-          return 0;
+    
+    FOR(j,0,S.size()-n){
+      int p = j;
+      FOR(i,n+j,S.size()){
+        if (S[i] == S[p]){
+          p++;
+          if (p==n+j){
+            cout << n << endl;
+            return 0;
+          }
+        }else{
+            if (S[i]==S[0])p=j+1;
+            else p=j;
         }
-      }else{
-          if (S[i]==S[0])p=1;
-          else p=0;
       }
     }
     n--;
