@@ -21,23 +21,31 @@ int main() {
   ios::sync_with_stdio(false);
   int n;
   string S;
+  
   cin >> n;
   cin >> S;
+  int size = S.size();
+  //cout << S << endl;
   int ans = 0;
+
   while(n>0){
     
-    FOR(j,0,S.size()-n){
+    FOR(j,0,size-n){
       int p = j;
-      FOR(i,n+j,S.size()){
+      FOR(i,n+j,size){
+        //dump(i);
+        if (size-i < n-p+j)){
+        //if (S.size()-p < n-(p-j)){
+          //cout << n << " " << p << " " << j << endl;
+          break; 
+        }
         if (S[i] == S[p]){
-          p++;
-          if (p==n+j){
+          if (++p==n+j){
             cout << n << endl;
             return 0;
           }
         }else{
-            if (S[i]==S[0])p=j+1;
-            else p=j;
+            p=j+(S[i]==S[j]);
         }
       }
     }
