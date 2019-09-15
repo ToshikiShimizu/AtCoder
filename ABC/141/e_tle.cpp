@@ -15,6 +15,19 @@ const double EPS = 1e-9;
 const int DX[8]={ 0, 1, 0,-1, 1, 1,-1,-1};
 const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 
+ bool check(string S, int n){
+    int size = S.size();    
+    int a;
+    FOR(j,0,size-n){
+      FOR(i,n+j,size-n+1){
+        a = 0;
+        while(S[i+a] == S[j+a]){
+          if (++a==n)return true;
+        }
+      }
+    }
+    return false;
+  }
 
 int main() {
   cin.tie(0);
@@ -24,32 +37,24 @@ int main() {
   
   cin >> n;
   cin >> S;
-  int size = S.size();
-  //cout << S << endl;
-  int ans = 0;
+  
 
-  while(n>0){
-    
-    FOR(j,0,size-n){
-      int p = j;
-      FOR(i,n+j,size){
-        //dump(i);
-        if (size-i < n-p+j)){
-        //if (S.size()-p < n-(p-j)){
-          //cout << n << " " << p << " " << j << endl;
-          break; 
+    int right = n;
+    int left = 1;
+    int mid;
+    int ans = 0;
+    while(left<right){
+        mid = (left+right)/2;
+        dump(mid);
+        dump(check(S,mid));
+        if(check(S,mid)){
+            left = mid+1;
+            ans = max(ans,mid);
+        }else
+        {
+            right = mid;
         }
-        if (S[i] == S[p]){
-          if (++p==n+j){
-            cout << n << endl;
-            return 0;
-          }
-        }else{
-            p=j+(S[i]==S[j]);
-        }
-      }
     }
-    n--;
-  }
-  cout << 0 << endl;
+  cout << ans  << endl;
+
 }
