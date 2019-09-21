@@ -69,6 +69,7 @@ int main(){
     
     int mx = 0;
     REP(h,H)REP(w,W){
+        
         mx = max(dist[h][w],mx);
     }
     cout << mx << endl;
