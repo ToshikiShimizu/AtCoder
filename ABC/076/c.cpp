@@ -38,13 +38,13 @@ int main() {
                   cand[k] =  S[k];
               }
           }
-          cout << cand << endl;
+          //cout << cand << endl;
           if (ans.size()==0 || cand < ans){
               ans = cand;
           }
       }
   }
   if (ans.size()==0)cout << "UNRESTORABLE" << endl;
-  else cout << cand << endl;
+  else cout << ans << endl;
 
 }
