@@ -22,21 +22,33 @@ int main() {
   cin >> n >> k;
   string s;
   cin >> s;
+  string t = s;
   REP(i,n){
-      char cur = s[i];
-      int arg_j = -1;
+      int min_j = -1;
       for (int j=i+1; j<n; j++){
-          if (s[j] < cur){
-              cur = s[j];
-              arg_j = j;
+          if (s[j] < s[i]){
+                swap(s[i],s[j]);
+                int sm = 0;
+                REP(l,n){
+                    if (s[l]!=t[l])sm++;
+                }
+                swap(s[i],s[j]);
+                dump(sm);
+                if (k >= sm){
+                    if (min_j == -1){
+                        min_j = j;
+                    }else if(s[min_j] > s[j]){
+                        min_j = j;
+                    }
+                    
+                    
+                }              
           }
       }
-      if (arg_j != -1){
-          swap(s[i],s[arg_j]);
-          k--;
-          if (k==0)break;
+      if (min_j != -1){
+          swap(s[i],s[min_j]);
+          dump(s);
+        }
       }
-  }
   cout << s << endl;
-
 }
