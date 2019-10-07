@@ -38,6 +38,10 @@ void solve1(){
     vw.push_back(make_pair(sw,sv));
   }
   SORT(vw);
+  int m = 1;
+  for(int i=1;i < (1<<n1);i++) {
+      if(vw[m-1].second < vw[i].second) vw[m++] = vw[i];
+  }
   // for (auto x: vw){
   //   cout << x.first << " " << x.second << endl;
   // }
@@ -55,7 +59,7 @@ void solve1(){
     }
     if(W>=sw){
 
-      auto itr = upper_bound(vw.begin(),vw.end(), make_pair(W-sw,LLINF))-1;
+      auto itr = upper_bound(vw.begin(),vw.begin()+m, make_pair(W-sw,LLINF))-1;
       ans = max(ans,sv+(*itr).second);
     }
     //dump(sv);
