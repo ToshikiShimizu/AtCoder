@@ -25,33 +25,38 @@ int vmax, wmax = 0;
 int n1,n2;
 void solve1(){
   vector<pair<ll, ll> > vw;
+  //pair<ll, ll> vw[1<<16];
   dump(1<<n1);
   REP(i,1<<n1){
     ll sv = 0;
     ll sw = 0;
-    REP(j, 1<<n1){
+    REP(j, n1){
       if (i>>j & 1){
         sv += vec_v[j];
         sw += vec_w[j];
       }
     }
     vw.push_back(make_pair(sw,sv));
+    //vw[i] = make_pair(sw,sv);
   }
   SORT(vw);
+  //sort(vw,vw+(1<<n1));
   int m = 1;
   for(int i=1;i < (1<<n1);i++) {
       if(vw[m-1].second < vw[i].second) vw[m++] = vw[i];
   }
+  dump(m);
   // for (auto x: vw){
   //   cout << x.first << " " << x.second << endl;
   // }
   ll ans = 0;
+  int cnt = 0;
   
   
   REP(i,1<<n2){
     ll sv = 0;
     ll sw = 0;
-    REP(j, 1<<n2){
+    REP(j, n2){
       if (i>>j & 1){
         sv += vec_v[j+n1];
         sw += vec_w[j+n1];
@@ -61,12 +66,16 @@ void solve1(){
 
       auto itr = upper_bound(vw.begin(),vw.begin()+m, make_pair(W-sw,LLINF))-1;
       ans = max(ans,sv+(*itr).second);
+      // auto itr = upper_bound(vw,vw+m, make_pair(W-sw,LLINF))-1;
+      // ans = max(ans,sv+itr->second);
+      cnt++;
     }
     //dump(sv);
     //dump(*itr);
     
   }
   cout << ans << endl;
+  //cout << cnt << endl;
 }
 
 void solve2(){

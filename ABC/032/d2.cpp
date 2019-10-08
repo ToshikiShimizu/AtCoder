@@ -45,7 +45,9 @@ signed main()
     reps(i, 1, 1<<n2) {
       if(ps[m-1].second < ps[i].second) ps[m++] = ps[i];
     }
+    cout << m << endl;
     int res = 0;
+    int cnt = 0;
     rep(i, 1<<(N-n2)) {
       int smv = 0, smw = 0;
       rep(j, N-n2) {
@@ -54,9 +56,11 @@ signed main()
       if(smw <= W) {
 	int tmp = (lower_bound(ps, ps + m, make_pair(W-smw, inf))-1)->second;
 	res = max(res, smv + tmp);
+  cnt++;
       }
     }
     cout << res << endl;
+    cout << cnt << endl;
     return 0;
   }
 
