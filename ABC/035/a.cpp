@@ -18,18 +18,11 @@ const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int n,q;
-  cin >> n >> q;
-  int l,r,t;
-  int a[100];
-  REP(i,100){a[i]=0;}
-  REP(i,q){
-      cin >> l >> r >> t;
-      for (int j=l-1;j<r;j++){
-          a[j] = t;
-      }
-  }
-  REP(i,n){
-      cout << a[i] << endl;
+  double w,h;
+  cin >> w >> h;
+  if (w/4 == h/3){
+      cout << "4:3" << endl;
+  }else{
+      cout << "16:9" << endl;
   }
 }
