@@ -19,25 +19,13 @@ const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int n;
-  cin >> n;
-  string s;
-  int p;
-  int sum_p = 0;
-  int max_p = 0;
-  string max_s;
-  REP(i,n){
-    cin >> s;
-    cin >> p;
-    sum_p += p;
-    if (max_p < p){
-      max_p = p;
-      max_s = s;
-    }
-  }
-  if (sum_p < 2*max_p){
-    cout << max_s << endl;
+  double a,b,c,d;
+  cin >> a >> b >> c >> d;
+  if (b/a > d/c){
+    cout << "TAKAHASHI" << endl;
+  }else if(b/a < d/c){
+    cout << "AOKI" << endl;
   }else{
-    cout << "atcoder" << endl;
+    cout << "DRAW" << endl;
   }
 }

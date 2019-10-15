@@ -19,25 +19,14 @@ const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int n;
-  cin >> n;
-  string s;
-  int p;
-  int sum_p = 0;
-  int max_p = 0;
-  string max_s;
-  REP(i,n){
-    cin >> s;
-    cin >> p;
-    sum_p += p;
-    if (max_p < p){
-      max_p = p;
-      max_s = s;
-    }
-  }
-  if (sum_p < 2*max_p){
-    cout << max_s << endl;
-  }else{
-    cout << "atcoder" << endl;
-  }
+  double n, m;
+
+  cin >> n >> m;
+  n += m/60;
+  n *= (360/12);
+  m *= (360/60);
+  
+  double d = fmod(n-m+360 ,360);
+  cout << min(d,360-d) << endl;
+
 }
