@@ -15,32 +15,49 @@ const double EPS = 1e-9;
 const int DX[8]={ 0, 1, 0,-1, 1, 1,-1,-1};
 const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 
-int main() {
-  cin.tie(0);
-  ios::sync_with_stdio(false);
-  int n;
-  cin >> n;
-  vector<int> L;
-  int l;
-  REP(i,n){
-    cin >> l;
-    L.push_back(l);
-  }
-  SORT(L);
-  REV(L);
-  ll ans;
-  REP(i,n){
-    REP(j,i){
-      REP(k,j){
-        // cout << i << " " << j << " " << k << endl;
-        // cout << L[i] << " " << L[j] << " " << L[k] << endl;
-        if (L[i] + L[j] > L[k]){
-          ans+=(j-k);
-          break;
-        }
+ll d[300][300];
+
+void warshall_floyd(int n) {
+  for (int k = 0; k < n; k++){       // 経由する頂点
+    for (int i = 0; i < n; i++) {    // 始点
+      for (int j = 0; j < n; j++) {  // 終点
+        d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
       }
     }
   }
-  cout << ans << endl;
+}
 
+int main() {
+  cin.tie(0);
+  ios::sync_with_stdio(false);
+  int n,m;
+  ll l;
+  cin >> n >> m >> l;
+  int a,b;
+  ll c;
+  REP(i,n)REP(j,n){
+    if(i==j)d[i][j]=0;
+    else d[i][j] = LLINF;
+  }
+  REP(i,m){
+    cin >> a >> b >> c;
+    d[a-1][b-1] = c;
+    d[b-1][a-1] = c;
+  }
+
+  warshall_floyd(n);
+
+  int q;
+  cin >> q;
+  REP(i,n)REP(j,n){
+    if (i==j)continue;
+    if (d[i][j] <= l)d[i][j] = 1;
+  }
+  warshall_floyd(n);
+  int s,t;
+  REP(i,q){
+    cin >> s >> t;
+    if (d[s-1][t-1]==LLINF)cout <<-1<<endl;
+    else cout << d[s-1][t-1]-1 << endl;
+  }
 }
