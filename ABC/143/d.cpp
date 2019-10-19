@@ -50,8 +50,9 @@ int main() {
   int q;
   cin >> q;
   REP(i,n)REP(j,n){
-    if (i==j)continue;
-    if (d[i][j] <= l)d[i][j] = 1;
+    if(d[i][j]==0) d[i][j]=0;
+    else if(d[i][j]<=l) d[i][j]=1;
+    else d[i][j]=LLINF;
   }
   warshall_floyd(n);
   int s,t;
