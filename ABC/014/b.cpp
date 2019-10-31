@@ -19,8 +19,12 @@ const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int a,b,x;
-  cin >> a >> b >> x;
-  if (2*x <= a*a*b)cout << 180*atan(double(a*b*b)/(2*x))/M_PI << endl;
-  else cout << std::setprecision(10) << 180*atan(double(2*(a*a*b-x))/(a*a*a))/M_PI << endl;
+  int n,x,a;
+  cin >> n >> x;
+  int ans = 0;
+  REP(i,n){
+      cin >> a;
+      if (x >> (i) & 1)ans+=a;
+  }
+  cout << ans << endl;
 }
