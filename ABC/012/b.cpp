@@ -19,12 +19,7 @@ const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int n;
-  cin >> n;
-  int h = n/3600;
-  n = n%3600;
-  int m = n/60;
-  n = n% 60;
-  int s = n;
-  cout << setfill('0') << setw(2) <<  h << ":"  <<setw(2) <<  m << ":"<< setw(2) <<  s << endl;
+  int a,b;
+  cin >> a >> b;
+  cout << min(abs(a-b),10-abs(a-b)) << endl; 
 }
