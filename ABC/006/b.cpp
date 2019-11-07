@@ -18,13 +18,13 @@ const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int a[100010];
+  int a[1000010];
   a[0] = 0;
   a[1] = 0;
   a[2] = 1;
   int n;
   cin >> n;
-  REP(i,100000){
+  REP(i,1000000){
       a[i+3] = (a[i] + a[i+1] + a[i+2]) % 10007;
   }
   cout << a[n-1] << endl;
