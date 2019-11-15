@@ -21,20 +21,20 @@ int main() {
   ios::sync_with_stdio(false);
   int n;
   int a;
-  int cnt[8] = {};
+  int cnt[9] = {};
   cin >> n;
-  int wild;
+  int wild = 0;
   
   REP(i,n){
     cin >> a;
-    if (a>=3200){
-        wild++;
-    }
-    else cnt[a/400]=1;
+    cnt[min(a,3200)/400]++;
   }
   int sm = 0;
   REP(i,8){
-      sm+=cnt[i];
+      if(cnt[i]){
+        sm++;
+      }
   }
-  cout << max(sm,1) << " " << min(sm+wild,8) << endl;
+  cout << max(sm,1) << endl;
+  cout << sm+cnt[8] << endl;
 }
