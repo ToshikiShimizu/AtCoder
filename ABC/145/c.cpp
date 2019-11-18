@@ -15,8 +15,9 @@ const double EPS = 1e-9;
 const int DX[8]={ 0, 1, 0,-1, 1, 1,-1,-1};
 const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 
-double (pair<int,int> a, pair<int,int> b){
-  return;
+double dist(pair<int,int> a, pair<int,int> b){
+  return pow((pow((a.first - b.first),2) + pow((a.second - b.second),2)),0.5);
+ 
 }
 
 int main() {
@@ -30,4 +31,11 @@ int main() {
     cin >> x >> y;
     v.push_back(make_pair(x,y));
   }
+  double sm = 0;
+  REP(i,n){
+    FOR(j,i+1,n){
+      sm += dist(v[i],v[j]);
+    }
+  }
+  cout << fixed << setprecision(10) << sm * 2 / n <<endl;
 }
