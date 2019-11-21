@@ -23,19 +23,9 @@ double dist(pair<int,int> a, pair<int,int> b){
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int n;
-  int x,y;
-  cin >> n;
-  vector<pair<int ,int> > v;
-  REP(i,n){
-    cin >> x >> y;
-    v.push_back(make_pair(x,y));
-  }
-  double sm = 0;
-  REP(i,n){
-    FOR(j,i+1,n){
-      sm += dist(v[i],v[j]);
-    }
-  }
-  cout << fixed << setprecision(10) << sm * 2 / n <<endl;
+  int a,b,c,d,e,f;
+  cin >> a >> b >> c >> d >> e >> f;
+  double ans;
+  ans = abs((c-a) * (f-b) - (d-b) * (e - a))/2.0;
+  cout << fixed << setprecision(10) <<ans <<endl;
 }
