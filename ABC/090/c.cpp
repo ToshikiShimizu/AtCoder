@@ -15,11 +15,6 @@ const double EPS = 1e-9;
 const int DX[8]={ 0, 1, 0,-1, 1, 1,-1,-1};
 const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 
-double dist(pair<int,int> a, pair<int,int> b){
-  return pow((pow((a.first - b.first),2) + pow((a.second - b.second),2)),0.5);
- 
-}
-
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
