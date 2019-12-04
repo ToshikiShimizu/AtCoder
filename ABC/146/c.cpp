@@ -15,6 +15,28 @@ const double EPS = 1e-9;
 const int DX[8]={ 0, 1, 0,-1, 1, 1,-1,-1};
 const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 
+<<<<<<< HEAD
+int main() {
+  cin.tie(0);
+  ios::sync_with_stdio(false);
+  int x,y;
+  cin >> x >>y;
+  if ((x+y)%3 != 0){
+      cout << 0 << endl;
+      return 0;
+  }
+  if (x<y)swap(x,y);
+  if (x > 2*y){
+      cout << 0 << endl;
+      return 0;
+  }  
+  int a = (x+y)/3;
+
+  int b = x - a;
+  if (a<b)swap(a,b);
+  
+  cout << comb(a,b) << endl;
+=======
 int CountDigits(ll n){
   if (n==0)return 0;
   int sum = 0;
@@ -44,5 +66,6 @@ int main() {
     }
   }
   cout << ans << endl;
+>>>>>>> 9bc9e211920b8a6f42dbd585f51b50f22a7287a7
 
 }
