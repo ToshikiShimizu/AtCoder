@@ -18,28 +18,15 @@ const int DY[8]={ 1, 0,-1, 0, 1,-1, 1,-1};
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  vector<int> A;
   int n;
-  int a;
   cin >> n;
+  string card = "123456";
+  n = n%30;
   REP(i,n){
-      cin >> a;
-      A.push_back(a);
+      int j = i % 5;
+
+      swap(card[j],card[j+1]);
   }
-  SORT(A);
-  REV(A);
-  ll ans = 1;
-  int cnt = 0;
-  REP(i,n-1){
-      if (A[i]==A[i+1]){
-          cnt++;
-          ans*=A[i];
-          i++;
-          if (cnt==2){
-              cout << ans << endl;
-              return 0;
-          }
-      }
-  }
-  cout << 0 << endl;
+  cout << card << endl;;
 }
+
