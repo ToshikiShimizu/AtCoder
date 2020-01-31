@@ -1,0 +1,7 @@
+#coding:utf-8
+x, y = map(int, input().split())
+k = int(input())
+if (y>k):
+    print (x+k)
+else:
+    print (x+y-(k-y))
