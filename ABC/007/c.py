@@ -12,7 +12,7 @@ for r in range(R):
     s = input()
     maze.append(s)
 q = queue.Queue()
-q.put((sx-1,sy-1,0))
+q.put((sy-1,sx-1,0))
 while(not q.empty()):
     y, x, d = q.get()
     if x == gx-1 and y == gy-1:
