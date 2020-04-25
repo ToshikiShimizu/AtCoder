@@ -8,12 +8,10 @@ for m in range(M):
 
 for i in range(N,1,-1):
     for comb in combinations(range(N),i):
-        ok = True
         for c in combinations(comb, 2):
             if (link[c[0]][c[1]] == 0):
-                ok = False
                 break
-        if ok:
+        else:
             print (i)
             exit()
 print (1)

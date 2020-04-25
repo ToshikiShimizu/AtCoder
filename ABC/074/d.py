@@ -7,22 +7,22 @@ N = int(input())
 INF = 10**10
 cost = [[INF]*N for _ in range(N)]
 
-for i in range(N):
+for u in range(N):
     C = list(map(int, input().split()))
-    for j in range(N):
-        if i==j:
+    for v in range(N):
+        if u==v: # INFのままにする
             continue
-        cost[i][j] = C[j]
+        cost[u][v] = C[v]
  
 ans = 0
-for j in range(N):
-    for k in range(j+1,N):
-        mn = INF
-        for i in range(N):
-            mn = min(mn, cost[j][i]+cost[i][k])    
-        if (cost[j][k] > mn):
+for u in range(N):
+    for v in range(u+1,N):
+        mn = INF # u-w-vのような経路の中で最小の距離を求める
+        for w in range(N):
+            mn = min(mn, cost[u][w]+cost[w][v])    
+        if (cost[u][v] > mn): # 与えられた行列が最短経路ではない
             print (-1)
             exit()
-        elif (cost[j][k] < mn):
-            ans += cost[j][k]                      
+        elif (cost[u][v] < mn): # 等しくない場合はu-vを直接結ぶ橋が必要 
+            ans += cost[u][v]                      
 print (ans)
