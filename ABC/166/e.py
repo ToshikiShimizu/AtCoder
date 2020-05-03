@@ -10,7 +10,7 @@ minus = []
 plus = []
 for i in range(len(A)):
     minus.append(A[i]-(i+1))
-    plus.append(-A[i]-(i+1))
+    plus.append(A[i]+(i+1))
 
 d = {}
 for m in minus:
@@ -18,5 +18,5 @@ for m in minus:
 
 ans = 0
 for p in plus:
-    ans += d.get(p,0)
+    ans += d.get(-p,0)
 print (ans)
