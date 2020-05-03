@@ -15,5 +15,4 @@ for comb in itertools.combinations_with_replacement([i for i in range(1,M+1)],N)
     mx = max(score,mx)
 print (mx)
 
-for comb in itertools.combinations_with_replacement(['b','c','a'],2):
-    print (comb)
+
