@@ -11,34 +11,12 @@ plus = []
 for i in range(len(A)):
     minus.append(A[i]-(i+1))
     plus.append(-A[i]-(i+1))
-minus.sort()
-plus.sort()
-#print (minus)
-#print (plus)
-minus.append(INF)
-plus.append(INF)
-i=0
-j=0
-ans=0
-while(i!=N and j!=N):
-    
-    if minus[i] < plus[j]:
-        i+=1
-    elif minus[i] > plus[j]:
-        j+=1
-    else:
-        ci = 1
-        cj = 1
-        #print (minus[i],plus[j],ans,i,j)
-        while(minus[i+1] == minus[i]):
-            i+=1
-            ci += 1
-        while(plus[j+1] == plus[j]):
-            j+=1
-            cj += 1
-        i+=1
-        j+=1
-        ans += ci*cj
-    
-print (ans)
 
+d = {}
+for m in minus:
+    d[m] = d.get(m,0) + 1
+
+ans = 0
+for p in plus:
+    ans += d.get(p,0)
+print (ans)

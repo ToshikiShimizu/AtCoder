@@ -16,8 +16,6 @@ for m in range(M):
     elif H[a] > H[b]:
         ok[b] = 0
     else:
-        ok[a] = 0
-        ok[b] = 0
-
+        ok[a] = ok[b] = 0
 print (sum(ok))
     
