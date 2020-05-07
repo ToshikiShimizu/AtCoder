@@ -1,0 +1,44 @@
+import itertools
+N, C = map(int, input().split())
+X = []
+V = []
+for n in range(N):
+    x, v = map(int,input().split())
+    X.append(x)
+    V.append(v)
+X_r = X[::-1]
+V_r = V[::-1]
+X = [0] + X
+V = [0] + V
+X_r = [0] + [C-x for x in X_r]
+V_r = [0] + V_r
+
+#cx = list(itertools.accumulate(X))
+cv = list(itertools.accumulate(V))
+#cxr = list(itertools.accumulate(X_r))
+cvr = list(itertools.accumulate(V_r))
+
+# print (X)
+# print (X_r)
+# print (cv)
+# print (cvr)
+
+# L = []
+# for i in range(N+1):
+#     L.append(cv[i]-X[i])
+# R = []
+# for i in range(N+1):
+#     R.append(cvr[i]-X_r[i])
+
+# print (L,R)
+mx = 0
+for l in range(N+1):
+    m1 = -2*X[l]+cv[l]
+    m2 = -2*X_r[l]+cvr[l]
+    for r in range(N+1-l):
+        #print (l,r)
+        a = m1+cvr[r]-X_r[r]
+        mx = max(mx,a)
+        a = m2+cv[r]-X[r]
+        mx = max(mx,a)
+print (mx)
