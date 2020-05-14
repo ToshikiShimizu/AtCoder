@@ -1,0 +1,6 @@
+A = list(map(int,input().split()))
+K = int(input())
+A.sort()
+#print (A)
+A[-1] = A[-1] * (2 ** K)
+print (sum(A))
