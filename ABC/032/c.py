@@ -23,5 +23,4 @@ for left in range(N):
     else:
         sm /= A[left] # leftの移動準備
 
-
 print (ans)
