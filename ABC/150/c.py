@@ -1,4 +1,3 @@
-#coding:utf-8
 from itertools import permutations
 N = int(input())
 P = tuple(map(int, input().split()))
