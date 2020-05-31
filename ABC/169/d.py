@@ -1,32 +1,23 @@
-
 N = int(input())
-P = 10**6
-prime = [1] * (P+1) # 素数
-prime[0] =  prime[1] =  0
+def factorize(N):
+    n = N
+    r = []
+    for i in range(2,int(N**0.5)+1): # intに変換すること
+        cnt = 0
+        while(n%i==0):
+            cnt += 1
+            n //= i #  整数除算(//)を使うこと
+        if cnt!=0:
+            r.append((i,cnt))
+    if n!=1: # root(N)以上の素数がある場合
+        r.append((n,1))
+    return r
 
-for i in range(2,P+1):
-    if prime[i]:
-        for j in range(i*i, P+1, i):
-            prime[j] = 0
 ans = 0
-for p in range(P):
-    i = 0
-    while(1): # 割れるだけ素数の累乗で割る
+for _, cnt in factorize(N):
+    i = 1
+    while(i <= cnt):
+        cnt-=i
         i+=1
-        v = pow(p,i)
-        if (prime[p] == 1 and N%v==0):
-            N //= v
-            ans += 1
-        else:
-            break
-
-for p in range(P): # 割れるだけ素数で割る
-    while(prime[p] == 1 and N%p==0):
-        N //= p
-
-if N!=1: # 1になっていなければ、P以上の素数一つを約数に持つ
-    ans += 1
+        ans+=1
 print (ans)
-
-
-
