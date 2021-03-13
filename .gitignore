@@ -1,6 +1,6 @@
 *.in
 *.out
-.DS_store
+*.DS_store
 *.dSYM
 *.json
 *.wa
