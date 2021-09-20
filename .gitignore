@@ -1,3 +1,6 @@
+*
+!*/
+!*.*
 *.in
 *.out
 *.DS_store
@@ -5,3 +8,5 @@
 *.json
 *.wa
 *.class
+*.o
+*.hi
