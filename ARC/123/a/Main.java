@@ -8,5 +8,6 @@ public class Main{
         long x = 2 * b - a - c;
         long ans = x + 3 * (Math.max(0, (1-x)/2));
         System.out.println(ans);
+
     }
 }
